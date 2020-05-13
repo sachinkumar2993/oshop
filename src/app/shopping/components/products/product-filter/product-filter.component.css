@@ -1,0 +1,12 @@
+.sticky-top{
+    top:80px;
+}
+
+.mat-expansion-panel-header{
+    background: #c5c5d0 !important;
+  }
+
+
+::ng-deep .mat-expansion-panel-body {
+    padding: 0 !important;
+}

@@ -1,0 +1,37 @@
+<form class="signup-form" action="/action_page.php" #f="ngForm">
+    <div class="container">
+        <h1>Sign Up</h1>
+        <p>Please fill in this form to create an account.</p>
+        <hr>
+        <input type="text" #username="ngModel" [(ngModel)]="user.username" placeholder="Enter User Name" name="username"
+            id="username" required>
+        <div class="alert alert-danger" *ngIf="username.touched && username.invalid">
+            User Name is required
+        </div>
+
+        <input type="email" #emailId="ngModel" [(ngModel)]="user.emailId" placeholder="Enter Email" name="emailId"
+            id="emailId" required>
+        <div class="alert alert-danger" *ngIf="emailId.touched && emailId.invalid">
+            EmailId is required
+        </div>
+
+        <input type="password" #password="ngModel" [(ngModel)]="user.password" placeholder="Enter Password"
+            name="password" required>
+        <div class="alert alert-danger" *ngIf="password.touched && password.invalid">
+            Password is required
+        </div>
+
+        <input type="password" #confirmPassword="ngModel" [(ngModel)]="repeatPassword" placeholder="Repeat Password"
+            name="repeatPassword" required>
+        <div class="alert alert-danger" *ngIf="confirmPassword.touched && confirmPassword.invalid">
+            <div *ngIf="confirmPassword.touched && confirmPassword.invalid">Repeat password is required</div>
+        </div>
+        <div class="error_msg" *ngIf="!checkPswrdEqulty()">
+            Password and repeat password should be same
+        </div>
+
+        <div class="clearfix">
+            <button (click)="signUp()" [disabled]="!f.valid" class="btn btn-primary btn-block">Sign Up</button>
+        </div>
+    </div>
+</form>

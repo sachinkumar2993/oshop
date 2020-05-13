@@ -1,0 +1,30 @@
+<div class="card">
+    <div class="card-body">
+      <h1 class="card-title">Order Summary</h1>
+      <p class="card-text">You have {{cart.getCartCount()}} items in your cart</p>
+      <table class="table">
+        <tbody>
+          <tr *ngFor="let i of cart.items">
+              <ng-container *ngIf="i.quantity!=0">
+                  <td>{{i.quantity}} * {{i.product.title}}
+                    <div class="float-right">
+                      {{currency+i.totalPrice}}
+                    </div>
+                  </td>
+              </ng-container>
+          </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th>
+                  Total
+                  <div class="float-right">
+                    {{currency+cart.totalPrice}}
+                  </div>
+                </th>
+            </tr>
+        </tfoot>
+      </table>
+    </div>  
+    
+  </div>

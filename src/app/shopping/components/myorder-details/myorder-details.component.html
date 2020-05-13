@@ -1,0 +1,141 @@
+<div class="row">
+    <div class="col-1"></div>
+    <div class="col-10">
+        <h1>Order Details</h1>
+        <hr>
+    </div>
+    <div class="col-1"></div>
+    <div class="col-1"></div>
+    <div class="col-7">
+        <div class="table-wrapper-scroll-y my-custom-scrollbar">
+            <table class="table table-sm table-dark table-borderless table-hover">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Product</th>
+                        <th class="text-center" style="width: 230px;">Quantity</th>
+                        <th style="width: 200px;">Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let i of order.items">
+                        <ng-container *ngIf="i.quantity!=0">
+                            <td>
+                                <div [style.backgroundImage]="'url('+i.product.imageUrl+')'" class="thumbnail"></div>
+                            </td>
+                            <td>{{i.product.title}}</td>
+                            <td class="text-center">
+                                {{i.quantity}}
+                            </td>
+                            <td>{{currency+i.totalPrice}}</td>
+                        </ng-container>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="col-3">
+        <div class="card bg-secondary">
+            <div class="card-body">
+                <h3 class="card-title">Price Summary</h3>
+                <hr>
+                <table class="table table-sm table-borderless">
+                    <tbody>
+                        <tr>
+                            <td>Subtotal
+                                <div class="float-right">
+                                    {{currency+order.totalPrice}}
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Shipping
+                                <div class="float-right">
+                                    {{currency+0}}
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Estimated tax
+                                <div class="float-right">
+                                    {{currency+0}}
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+
+                    <tfoot>
+                        <tr>
+                            <th>
+                                Total
+                                <div class="float-right">
+                                    {{currency+(order.totalPrice+0+0)}}
+                                </div>
+                            </th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-1"></div>
+    <div class="col-1"></div>
+    <div class="col-10">
+        <hr>
+    </div>
+    <div class="col-1"></div>
+    <div class="col-1"></div>
+    <div class="col-4">
+        <div class="card bg-secondary">
+            <div class="card-body">
+                <h3 class="card-title">Billing Information</h3>
+                <hr>
+                <table class="table table-sm table-borderless">
+                    <tbody>
+                        <tr>
+                            <td>Credit Card
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>VISA
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Ending in 2.3
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-3">
+        <div class="card bg-secondary">
+            <div class="card-body">
+                <h3 class="card-title">Shipping Information</h3>
+                <hr>
+                <h5 class="card-title">Address</h5>
+                <p class="card-text">
+                    {{order.shipping.addLine1+order.shipping.addLine2}}
+                    {{order.shipping.city+order.shipping.state}}
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-3">
+        <div class="card bg-secondary">
+            <div class="card-body">
+                <h3 class="card-title">Delivery</h3>
+                <hr>
+                UPS Ground
+                <div class="float-right">
+                    {{order.orderId}}
+                </div>
+                <button  class="mt-4 btn btn-block btn-info">
+                    Track Package
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="col-1"></div>
+</div>

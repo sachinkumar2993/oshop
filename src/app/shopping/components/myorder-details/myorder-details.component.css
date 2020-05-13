@@ -1,0 +1,28 @@
+.thumbnail{
+    height: 40px;
+    width: 40px;
+    border-radius: 100%;
+    background-size: cover;
+}
+
+.bg-secondary{
+    background-color: #a8afb5 !important;
+}
+
+.card-body{
+    padding: 1rem !important;
+}
+
+.table{
+    
+    margin-bottom: -1rem !important;
+}
+
+.my-custom-scrollbar {
+    position: relative;
+    height: 200px;
+    overflow: auto;
+    }
+.table-wrapper-scroll-y {
+    display: block;
+}

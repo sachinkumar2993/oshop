@@ -1,0 +1,32 @@
+<div class="sticky-top">
+  <div class="list-group">
+    <mat-accordion multi="false">
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Categories
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <mat-selection-list #catgories (selectionChange)="onCategSelection($event, catgories.selectedOptions)">
+          <mat-list-option *ngFor="let c of categories" [value]='c.name'>
+            {{c.name}}
+          </mat-list-option>
+        </mat-selection-list>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Price
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-selection-list #pricRnges (selectionChange)="onPriceSelection($event, pricRnges.selectedOptions)">
+          <mat-list-option *ngFor="let pR of priceRanges" [value]='pR'>
+            {{priceRange.currency + pR  +' - ' + priceRange.currency + (pR+priceRange.step)}}
+          </mat-list-option>
+        </mat-selection-list>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+</div>
